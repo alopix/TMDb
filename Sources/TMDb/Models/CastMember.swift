@@ -8,7 +8,7 @@ public struct CastMember: Identifiable, Codable, Equatable, Hashable {
     ///
     /// Cast member's identifier.
     ///
-    public let id: Int
+    public let id: Int?
 
     ///
     /// Cast member's identifier for the particular movie or TV series.
@@ -23,7 +23,7 @@ public struct CastMember: Identifiable, Codable, Equatable, Hashable {
     ///
     /// Cast member's real name.
     ///
-    public let name: String
+    public let name: String?
 
     ///
     /// Cast member's character name.
