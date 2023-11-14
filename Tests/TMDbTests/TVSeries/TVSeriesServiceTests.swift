@@ -203,5 +203,16 @@ final class TVSeriesServiceTests: XCTestCase {
         XCTAssertEqual(result, expectedResult)
         XCTAssertEqual(apiClient.lastPath, TVSeriesEndpoint.popular(page: page).path)
     }
+    
+    func testExternalIdsReturnsTVSeries() async throws {
+        let tvSeriesID = Int.randomID
+        let expectedResult = ExternalIDs.mock()
+        apiClient.result = .success(expectedResult)
+
+        let result = try await service.externalIds(forTVShow: tvSeriesID)
+
+        XCTAssertEqual(result, expectedResult)
+        XCTAssertEqual(apiClient.lastPath, TVSeriesEndpoint.externalIds(tvSeriesID: tvSeriesID).path)
+    }
 
 }
